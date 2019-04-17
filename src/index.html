@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="./src/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="container">
+        <form id="my-form" name="myForm">
+          <fieldset>
+            <h1 class="form__title">Explique o que você precisa</h1>
+            <h2 class="form__subtitle">Peça orçamento grátis, online!</h2>
+            <div class="form form-request active">
+              <div id="form-request__content"></div>
+              <button class="btn btn-initial">Contratar</button>
+            </div>
+            <div class="form form-user">
+              <div id="form-user__content"></div>
+              <button type="submit" class="btn btn-finish">Finalizar</button>
+            </div>
+          </form>
+        </fieldset>
+        <div class="tabs">
+          <div class="tab request tab--active">Request</div>
+          <div class="tab user">User</div>
+        </div>
+        <div class="modal">
+          <div class="modal__content">
+            <span class="modal__content-close">
+              <img src="https://www.freeiconspng.com/uploads/black-circle-close-button-png-5.png" alt="close" />
+            </span>
+              Cadastro Realizado com sucesso!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>

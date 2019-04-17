@@ -1,0 +1,147 @@
+:root {
+  --main-color: #1393f6;
+  --default-color: #fff;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+.container {
+  width: 500px;
+  margin: 0 auto;
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.2);
+}
+form {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+fieldset {
+  padding: 35px;
+  border: none;
+}
+.form__title {
+  color: var(--main-color);
+  font-weight: bold;
+  font-size: 30px;
+}
+.form__subtitle {
+  color: var(--main-color);
+  font-weight: 300;
+  font-size: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(19, 147, 246, 0.2);
+}
+.form-user,
+.form-request {
+  position: relative;
+}
+#form-request__content,
+#form-user__content {
+  display: flex;
+  flex-flow: column;
+}
+#form-request__content select,
+#form-request__content input,
+#form-request__content textarea,
+#form-user__content select,
+#form-user__content input,
+#form-user__content textarea {
+  margin: 10px 0;
+  padding: 13px 11px;
+  font-size: 16px;
+  background-color: var(--default-color);
+  border: 1px solid rgba(19, 147, 246, 0.5);
+  border-radius: 6px;
+}
+
+.form {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.btn {
+  background: var(--main-color);
+  border: none;
+  padding: 15px 40px;
+  border-radius: 4px;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--default-color);
+  display: block;
+  margin: 10px auto;
+  cursor: pointer;
+}
+.tabs {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  margin-top: -5px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-top: none;
+}
+.tab {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #e6e6e6;
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  color: rgba(83, 110, 123, 0.5);
+}
+.tab.request {
+  border-bottom-right-radius: 0px;
+}
+.tab.user {
+  border-bottom-left-radius: 0px;
+}
+
+.tab--active {
+  background: var(--default-color);
+  color: #000;
+}
+
+.modal {
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.67);
+  display: none;
+}
+
+.modal--active {
+  display: block;
+}
+.modal__content {
+  width: 300px;
+  height: 100px;
+  margin: 40vh auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: var(--default-color);
+  color: #000;
+  border-radius: 5px;
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modal__content-close {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-weight: bold;
+}
+.modal__content-close img {
+  width: 20px;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "form-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viniarruda/form-nodejs.git"
+  },
+  "author": "Vinicius",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viniarruda/form-nodejs/issues"
+  },
+  "homepage": "https://github.com/viniarruda/form-nodejs#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

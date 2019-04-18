@@ -1,22 +1,14 @@
-let url = "https://api.myjson.com/bins/mla54";
+let url = "http://localhost:3000/fields";
 let data;
+let formUserFields = [];
 
 document.querySelector("#my-form").addEventListener("submit", e => {
   e.preventDefault();
+  return false;
 });
 
 const handleClick = data => {
   document.querySelector(".btn-initial").addEventListener("click", () => {
-    data._embedded.request_fields.map((d, index) => {
-      var a = document.getElementsByTagName("select");
-      var span = document.createElement("span");
-      for (let i = 0; i < a.length; i++) {
-        if (a[i].required) {
-          a[i].append(span);
-        }
-      }
-      console.log(a);
-    });
     document.querySelector(".form-request").classList.remove("active");
     document.querySelector(".form-user").classList.add("active");
     document.querySelector(".request").classList.remove("tab--active");
@@ -26,7 +18,14 @@ const handleClick = data => {
 
 const handleFinish = data => {
   document.querySelector(".btn-finish").addEventListener("click", () => {
-    document.querySelector(".modal").classList.add("modal--active");
+    if (validateFields()) {
+      document.querySelector(".modal").classList.add("modal--active");
+      let els = document.getElementsByTagName("input");
+      for (let el of els) {
+        el.value = "";
+      }
+      document.getElementsByTagName("textarea")[0].value = "";
+    }
   });
   document
     .querySelector(".modal__content-close")
@@ -37,6 +36,28 @@ const handleFinish = data => {
       document.querySelector(".request").classList.add("tab--active");
       document.querySelector(".user").classList.remove("tab--active");
     });
+};
+
+const insertAfter = (el, referenceNode) => {
+  referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
+};
+
+const validateFields = () => {
+  let isValid = true;
+  formUserFields.map(f => {
+    let el = document.getElementsByTagName("span");
+    for (let e of el) {
+      if (f.attributes.required && f.value.length <= 0) {
+        f.classList.add("error");
+        isValid = false;
+        //e.classList.add("active");
+      } else {
+        f.classList.remove("error");
+        //e.classList.remove("active");
+      }
+    }
+  });
+  return isValid;
 };
 
 const createRequestFields = request_fields => {
@@ -70,16 +91,22 @@ const createRequestFields = request_fields => {
 
 const createUserFields = user_fields => {
   var formUser = document.getElementById("form-user__content");
+  formUserFields = [];
 
   user_fields.map((u, index) => {
     var inputName = document.createElement("input");
     var label = document.createElement("label");
+    formUserFields.push(inputName);
     label.textContent = u.label;
     inputName.setAttribute("type", u.type);
     inputName.setAttribute("required", u.required);
     inputName.placeholder = u.placeholder;
     formUser.append(label);
     formUser.append(inputName);
+    let newEl = document.createElement("span");
+    let t = document.createTextNode("Campo obrigatório");
+    newEl.appendChild(t);
+    insertAfter(newEl, inputName);
   });
 };
 fetch(url, {

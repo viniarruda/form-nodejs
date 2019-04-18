@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Form Nodejs</title>
+    <title>Parcel Sandbox</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="/styles" />
     <link
@@ -13,7 +13,7 @@
   <body>
     <div id="app">
       <div class="container">
-        <form id="my-form" name="myForm">
+        <form id="my-form" name="myForm" novalidate>
           <fieldset>
             <h1 class="form__title">Explique o que você precisa</h1>
             <h2 class="form__subtitle">Peça orçamento grátis, online!</h2>
@@ -25,17 +25,17 @@
               <div id="form-user__content"></div>
               <button type="submit" class="btn btn-finish">Finalizar</button>
             </div>
-          </fieldset>
-        </form>
+          </form>
+        </fieldset>
         <div class="tabs">
           <div class="tab request tab--active">Request</div>
           <div class="tab user">User</div>
         </div>
         <div class="modal">
           <div class="modal__content">
-            <span class="modal__content-close">
+            <div class="modal__content-close">
               <img src="https://www.freeiconspng.com/uploads/black-circle-close-button-png-5.png" alt="close" />
-            </span>
+            </div>
               Cadastro Realizado com sucesso!
           </div>
         </div>

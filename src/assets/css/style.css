@@ -56,12 +56,23 @@ fieldset {
   border-radius: 6px;
 }
 
+select.error,
+input.error,
+textarea.error {
+  border-color: red !important;
+}
+
+#form-user__content span {
+  color: red;
+  font-size: 12px;
+  display: none;
+}
 .form {
   display: none;
 }
 
 .active {
-  display: block;
+  display: block!important;
 }
 
 .btn {

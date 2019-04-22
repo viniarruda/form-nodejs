@@ -50,12 +50,13 @@ const validateFields = () => {
       if (f.attributes.required && f.value.length <= 0) {
         f.classList.add("error");
         isValid = false;
-        //e.classList.add("active");
+        f.nextSibling.classList.add("active");
       } else {
         f.classList.remove("error");
-        //e.classList.remove("active");
+        f.nextSibling.classList.remove("active");
       }
     }
+    return f;
   });
   return isValid;
 };
@@ -86,6 +87,7 @@ const createRequestFields = request_fields => {
       formRequest.append(textArea);
       textArea.setAttribute("required", r.required);
     }
+    return r;
   });
 };
 
@@ -93,7 +95,7 @@ const createUserFields = user_fields => {
   var formUser = document.getElementById("form-user__content");
   formUserFields = [];
 
-  user_fields.map((u, index) => {
+  user_fields.map(u => {
     var inputName = document.createElement("input");
     var label = document.createElement("label");
     formUserFields.push(inputName);
@@ -107,6 +109,7 @@ const createUserFields = user_fields => {
     let t = document.createTextNode("Campo obrigatório");
     newEl.appendChild(t);
     insertAfter(newEl, inputName);
+    return u;
   });
 };
 fetch(url, {
